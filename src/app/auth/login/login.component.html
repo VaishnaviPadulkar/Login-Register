@@ -1,0 +1,90 @@
+<div
+  class="container-fluid"
+  style="
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(
+      to top,
+      rgba(0, 255, 255, 0.874),
+      rgb(4, 63, 83)
+    );
+    padding: 20px;
+  "
+>
+  <div class="col-sm-4 offset-4">
+    <div class="card card-custom-bg mt-5 shadow-lg">
+      <h1 class="card-header text-center">Login</h1>
+      <div class="card-body">
+        <form [formGroup]="userFrm" (ngSubmit)="login()">
+          <!-- Email Input -->
+          <div class="mt-2">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              formControlName="email"
+              placeholder="Enter Your Email"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                userFrm.controls['email'].touched &&
+                !userFrm.controls['email'].valid
+              "
+            >
+              <span *ngIf="userFrm.controls['email'].hasError('required')"
+                >Email id is required!!</span
+              >
+              <span *ngIf="userFrm.controls['email'].hasError('email')"
+                >Please enter a valid email!!</span
+              >
+            </div>
+          </div>
+          <!-- Password Input -->
+          <div class="mt-2">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              formControlName="password"
+              placeholder="Enter Your Password"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                userFrm.controls['password'].touched &&
+                !userFrm.controls['password'].valid
+              "
+            >
+              <span *ngIf="userFrm.controls['password'].hasError('required')"
+                >Password is required!!</span
+              >
+              <span *ngIf="userFrm.controls['password'].hasError('minlength')"
+                >Password should be at least 4 characters!!</span
+              >
+              <span *ngIf="userFrm.controls['password'].hasError('maxlength')"
+                >Password should not exceed 8 characters!!</span
+              >
+            </div>
+          </div>
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            [disabled]="userFrm.invalid"
+            class="btn btn-primary w-100 mt-3"
+          >
+            Login
+          </button>
+          <p class="text-center mt-3 text-light">
+            Don't Have an Account?
+            <a class="text-light" [routerLink]="['/auth/register']"
+              >Create Account</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

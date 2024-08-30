@@ -1,0 +1,22 @@
+/* Gradient background for the card */
+.card-custom-bg {
+  background: linear-gradient(to bottom, cyan, rgb(0, 72, 70));
+  border-radius: 8px;
+  overflow: hidden; /* Ensures rounded corners are visible */
+}
+
+.card-custom-bg .card-header {
+  background: #14dbe2fd;
+  color: white;
+  border-bottom: none;
+}
+
+.card-custom-bg .btn-primary {
+  background: #036164;
+  border-color: rgba(0, 128, 128, 0.8);
+}
+
+.card-custom-bg .card-body {
+  padding: 20px;
+  color: #333;
+}
